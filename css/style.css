@@ -1,0 +1,12 @@
+.leftCon {
+    float: left;
+    color: #339933;
+    background-color: #ee6338;
+    width: 20%;
+}
+.mainCon {
+    float: right;
+    color: #ee6338;
+    background-color:#339933;
+    width: 80%;
+}
