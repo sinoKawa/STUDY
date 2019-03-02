@@ -2,4 +2,4 @@
 テストです
 # マークダウンテスト２
 テストです
-[Second](https://sinokawa.github.io/STUDY/f1/second.md)
+[Second](https://sinokawa.github.io/STUDY/f1/)
