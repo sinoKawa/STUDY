@@ -1,0 +1,76 @@
+git study
+
+
+git init ：.gitが作成される
+
+#VIMにする
+git config --global core.editor 'vim -c "set fenc=utf-8"'
+ls -a
+
+ls .git
+objects の中にいろいろはいってくる
+config gitの設定
+
+その他.gitignore除外ルールなどを設定する 
+
+git add
+git commit -m
+git commit -v 
+test
+
+
+#変更差分の確認    ：
+git diff
+git diff --staged #add後はこちら
+
+
+#gitにアップする
+git push
+
+
+git log
+#一行で表示する
+git log --oneline
+#　ファイルの変更差分を表示する
+git log -p index.html
+#　表示するコミットを制限する
+git log -n
+
+#ファイル事削除
+git rm 
+git rm -r ディレクトリ
+gti rm --cached ファイル名　
+「必要だがGitにはのこしておきたくない情報につかう　PWなど」
+
+#もとにもどすなら
+git reset HEAD
+#復活するなら
+#git chaeckout HEAD 
+
+#ファイルの移動を記録
+git mv nowtxt newtxt
+または
+mv  oldtxt newtxt
+git rm  oldtxt
+git add newtxt
+
+#git にアップ
+git remote add orign origin http originというショートカットでURLのリモードリポジトリを登録する
+git push -u origin master  //-u をつけると次回以降 git push でも masterに送るようになる
+
+#git コマンドにエイリアスを付けよう
+コマンドの入力を短縮して入力を楽にしよう
+git config --global alias.ci commit
+git config --global alias.st status
+git config --global alias.br branch
+git config --global alias.co checkout
+
+
+
+#git バージョン管理しないファイルは無視しよう
+
+
+
+#git 
+
+
