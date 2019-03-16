@@ -2,11 +2,12 @@ git study
 
 
 git init ：.gitが作成される
+git config 
+
 
 #VIMにする
 git config --global core.editor 'vim -c "set fenc=utf-8"'
 ls -a
-
 ls .git
 objects の中にいろいろはいってくる
 config gitの設定
@@ -55,15 +56,27 @@ git rm  oldtxt
 git add newtxt
 
 #git にアップ
-git remote add orign origin http originというショートカットでURLのリモードリポジトリを登録する
+git remote add origin https://github.com/sinoKawa/STUDY.git originというショートカットでURLのリモードリポジトリを登録する
 git push -u origin master  //-u をつけると次回以降 git push でも masterに送るようになる
+アップできない場合
+Everything up-to-date　となっているのにアップできない
+git remote -v
+git push origin master:master
+git push ssh://git@github.com/◯◯◯.git master:master
+    gitpull がrejectされた場合
+    「pdates were rejected because the tip of your current branch is behind」
+
 
 #git コマンドにエイリアスを付けよう
 コマンドの入力を短縮して入力を楽にしよう
 git config --global alias.ci commit
 git config --global alias.st status
-git config --global alias.br branch
+git congit fig --global alias.br branch
 git config --global alias.co checkout
+git config --global core.editor 'vim -c "set fenc=utf-8"'
+
+~/.gitconfig
+~/.config/git/config #globalをつけるとPC全体の設定になるよ
 
 
 
