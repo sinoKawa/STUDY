@@ -145,5 +145,13 @@ git remote rename A B
 git rm A
 
 
-#ブランチ　と　マージ
+#ブランチ　と　マージ 
+git branch ブランチ名
+git branch feature 
+注意　ブランチは作るけど　切り替えはしないよ
+ブランチ一覧
+git branch -a
+git branch 今のブランチ
+
+
 
