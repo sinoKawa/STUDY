@@ -235,6 +235,10 @@ git branch -D master //マスターを削除
 git fetch 
 git branch master origin/master
 
+相手が作成したbranchが見えない時
+git branch -r
+git fetch origin
+
 
 
 
