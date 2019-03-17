@@ -108,6 +108,26 @@ git reset HEAD
 git commit --amend
 # -a
 
+#リモートを表示する
+git remote 
+git remote  -v#URLなら
+url (fetch)
+url (push)
+##バックアップ用のリポジトリを作成後
+git remote add  bak URL https
+git push -u bak master #bak用のリポジトリを更新する。
+##リモートから取得する　フェッチ
+二種類　
+fetch
+pull
 
+git fetch <リモート名>
+git fetch origin 
+→　リモートリポジトリ→ローカルリモジトリに移動する　　ローカルのワークツリーにはこない
+→　ローカルワークツリーに持ってくるには 　git marge
+git branch -a  //aはALL
+##git checkout remotes/origin/master 　 ##中身を確認
+##git checkout master
+git merge remotes/origin/master #git branch -a ならremotes/origin/master
 
 
