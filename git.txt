@@ -245,7 +245,8 @@ remotes/origin/pull
 git checkout -b pull_ remotes/origin/pull　
 $ git checkout -b ローカルでのブランチ名 チェックアウトするブランチ名
 
+ git push origin :dev  
 
-
+ブランチ　　git push origin[サーバ名]　[branch名] 
           
           
