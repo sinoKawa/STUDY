@@ -81,9 +81,25 @@ git config --global core.editor 'vim -c "set fenc=utf-8"'
 
 
 #git バージョン管理しないファイルは無視しよう
+.gitignoreファイルに指定する
+「
+# comment
+#とすると除外される
+index.html
+/index.html
+dir/
+#一つもどった階層のCSS除外
+/*/*.css
 
 
 
-#git 
+」
+
+#取り消し
+git checkout  -- ファイル名　ディレクトリー名
+#stagedの時の取り消し
+git reset HEAD ふぃあるめい
+#全て変更とりけし   
+git reset HEAD
 
 
