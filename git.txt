@@ -35,7 +35,10 @@ git log --oneline
 #　ファイルの変更差分を表示する
 git log -p index.html
 #　表示するコミットを制限する
-git log -n
+git log -
+例
+git log -p -n 1
+
 
 #ファイル事削除
 git rm 
