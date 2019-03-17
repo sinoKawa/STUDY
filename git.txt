@@ -134,3 +134,16 @@ git merge remotes/origin/master #git branch -a ならremotes/origin/master
 "上記を一気にしたいなら　
 git pull <リモート名><ブランチ名>
 git pull origin master 
+##プルの注意点　別のブランチにいた場合　統合されてしまう。超危険,理解するまではfetch
+
+
+#リモートの詳細
+git remote show 
+git remote origin
+#リモートの変更削除
+git remote rename A B
+git rm A
+
+
+#ブランチ　と　マージ
+
