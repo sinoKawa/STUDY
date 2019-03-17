@@ -214,8 +214,8 @@ githubフローとかあれ
 #githubを利用した開発手順のながれ　
 ##プルリクエスト
 １　マスターを最新にする git branch    git pull origin master
-２　ブランチを作成する
-３　ファイルを変更
+２　ブランチを作成する git branch pull_request   git checkout pull_request  
+３　ファイルを変更   
 ４　変更をコミット
 ５　githubへプッシュ
 ６　プルリクエストを送る
