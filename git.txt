@@ -164,6 +164,7 @@ git merge origin/master
 ##マージには3種類ある
 Fast Foward 早送りになるマージ
 　master →　　hotfixブランチ作成→git marge hotfix
+　 git log  --oneline 確認
 Auto Merge 基本的な魔0時
    master　　git merge freature
     ↓
