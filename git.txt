@@ -250,3 +250,6 @@ $ git checkout -b ローカルでのブランチ名 チェックアウトする�
 ブランチ　　git push origin[サーバ名]　[branch名] 
           
           
+##大切なこと
+pushされてはじめてgithubに反映される。
+pullされてはじめてgithub上にマージされる　
