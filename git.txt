@@ -121,6 +121,7 @@ git push -u bak master #bak用のリポジトリを更新する。
 fetch
 pull
 
+#情報取得
 git fetch <リモート名>
 git fetch origin 
 →　リモートリポジトリ→ローカルリモジトリに移動する　　ローカルのワークツリーにはこない
@@ -130,4 +131,6 @@ git branch -a  //aはALL
 ##git checkout master
 git merge remotes/origin/master #git branch -a ならremotes/origin/master
 
-
+"上記を一気にしたいなら　
+git pull <リモート名><ブランチ名>
+git pull origin master 
