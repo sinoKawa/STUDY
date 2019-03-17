@@ -27,7 +27,7 @@ git diff --staged #add後はこちら
 
 #gitにアップする
 git push
-
+git push orijin master
 
 git log
 #一行で表示する
