@@ -101,5 +101,9 @@ git checkout  -- ファイル名　ディレクトリー名
 git reset HEAD ふぃあるめい
 #全て変更とりけし   
 git reset HEAD
+#直前のコミットをやり直す
+git commit --amend
+#
+
 
 
