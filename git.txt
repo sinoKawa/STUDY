@@ -157,8 +157,23 @@ git log --oneline --decorate #どのブランチがどのコミットをさし�
 ##ブランチに移動
 git checkout <既存ブランチ>
 git checkout -b <新ブランチ>
+#変更履歴をマージする
+git merge <ブランチ名>
+git merge <リモート名・ブランチ名>
+git merge origin/master
+##マージには3種類ある
+Fast Foward 早送りになるマージ
+　master →　　hotfixブランチ作成→git marge hotfix
+Auto Merge 基本的な魔0時
+   master　　git merge freature
+    ↓
+commmit
+    ↑
+　feature
 
-
-
-
-
+   master　←　 master　　
+    ↓　　　　　　↓
+commmit　　　　　↓
+    ↑　　　　　　↓
+　feature　←←←←←←←　
+Conflect ﾏｰｼﾞ
