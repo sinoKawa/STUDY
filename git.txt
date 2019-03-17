@@ -103,7 +103,8 @@ git reset HEAD ふぃあるめい
 git reset HEAD
 #直前のコミットをやり直す
 git commit --amend
-#
+# -a
+
 
 
 
