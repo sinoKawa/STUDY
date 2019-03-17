@@ -238,7 +238,12 @@ git branch master origin/master
 相手が作成したbranchが見えない時
 git branch -r
 git fetch origin
-git checkout -b  
+#リモートを取得
+git branch -a
+remotes/origin/pull
+なら
+git checkout -b pull_ remotes/origin/pull　
+$ git checkout -b ローカルでのブランチ名 チェックアウトするブランチ名
 
 
 
