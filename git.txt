@@ -178,4 +178,20 @@ commmit
 commmit　　　　　↓
     ↑　　　　　　↓
 　feature　←←←←←←←　
-Conflect ﾏｰｼﾞ
+Conflect Merge
+
+##コンフリクト対策
+複数人で同じファイルをさわらない
+pullやMergeする前に変更中の状態をなくしておく　commit stash
+pullするときは　pullするブランチに移動してからpullsuru
+
+
+##ブランチの変更削除
+git branch -m <ブランチ名>　ブランチ名を<ブランチ名>に変更する　-m＝move
+git branch -d <ブランチ名>  削除する
+強制削除
+git branch -D <ブランチ名> 変更があっても強制的に削除
+
+##ブランチを利用した開発の流れ
+
+##リモートブランチって何
