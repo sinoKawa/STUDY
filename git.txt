@@ -193,5 +193,43 @@ git branch -d <ブランチ名>  削除する
 git branch -D <ブランチ名> 変更があっても強制的に削除
 
 ##ブランチを利用した開発の流れ
+githubフローとかあれ
 
 ##リモートブランチって何
+リモートブランチのポインター
+
+リモートリポジトリ　　マスター
+　　　　　　　　　　　featurebranch
+.............................
+ローカル　master     　　　　 
+          topic         　　
+↓
+リモートリポジトリ　　マスター
+　　　　　　　　　　　featurebranch
+..............................git fetch するとリモートができる
+ローカル　master     　　　　   origin/master　
+          topic                 topic
+          feature               origin/feature
+       
+#githubを利用した開発手順のながれ　
+##プルリクエスト
+１　マスターを最新にする git branch    git pull origin master
+２　ブランチを作成する
+３　ファイルを変更
+４　変更をコミット
+５　githubへプッシュ
+６　プルリクエストを送る
+７　コードレビュー
+８　プルリクエストをマージ
+
+
+
+
+##github Flowの流れ
+##Github Flowを実践しよう
+
+
+
+
+          
+          
