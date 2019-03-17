@@ -238,7 +238,7 @@ git branch master origin/master
 相手が作成したbranchが見えない時
 git branch -r
 git fetch origin
-git checkout -b origin/pull
+git checkout -b  
 
 
 
