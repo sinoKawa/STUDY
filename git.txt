@@ -229,6 +229,12 @@ githubフローとかあれ
 ##Github Flowを実践しよう
 
 
+##その他  
+git branch -D master //マスターを削除
+git fetch 
+git branch master origin/master
+
+
 
 
           
