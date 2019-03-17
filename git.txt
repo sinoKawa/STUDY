@@ -156,6 +156,7 @@ git branch 今のブランチ
 git log --oneline --decorate #どのブランチがどのコミットをさしてるか確認したい
 ##ブランチに移動
 git checkout <既存ブランチ>
+
 git checkout -bgit  <新ブランチ>
 #変更履歴をマージする
 git merge <ブランチ名>
