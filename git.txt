@@ -279,16 +279,15 @@ git commit --amand
 #複数のコミットをやり直す
 git rebase -i コミットID
 git rebase -i HEAD~3 # -i はinteractive の意味 3つ表示する　HEAD^3 親から3番
-edit コミットID
-git commit --amend
+edit に書き直す コミットID
+git commit --amend　　・・コメントを変更する
 次のコミットへ進む
 git rebase --continue
 
 無駄メモ　チルダ　 ~ 　キャレット ^
 
-test1
-test2
-test3
+コミット並び替え
 
+git rebase -i HEAD~3 //古い順で表示される
 
 
