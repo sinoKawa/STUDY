@@ -10,7 +10,8 @@ git config --global core.editor 'vim -c "set fenc=utf-8"'
 
 #ファストフォワードさせない
 git config --global merge.ff false 
-
+#master ブランチで　git pullするときだけ　gitpullリベース型にする
+git config branch.master.rebase true
 
 ls -a
 ls .git
@@ -266,6 +267,21 @@ git checkout master
 git merge feature
 
 
-##
+##pull 
+git pull --rebase orgin master //マージ情報を残さない　
+pull の　git fetch git marge 　でなく git fetch git rebase //github上に情報をのこさない　単純に最新をおとしたい場合
 test
-test2
+test
+
+
+#直前のコミットをやめる　
+git commit --amand 
+#複数のコミットをやり直す
+git rebase -i コミットID
+git rebase -i HEAD~3 # -i はinteractive の意味 3つ表示する　HEAD^3 親から3番
+edit コミットID
+git commit --amend
+次のコミットへ進む
+git rebase --continue
+
+無駄メモ　チルダ　 ~ 　キャレット ^
