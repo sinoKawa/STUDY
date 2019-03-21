@@ -1,0 +1,65 @@
+<html>
+
+<head></head>
+<body>
+</body>
+<script>
+$(function{
+//処理 readyのたミングで
+$('a');
+//id
+$('#name');
+//class
+$('.name');
+
+$('a').text('hello');
+
+$('a').length;
+//Jquery は配列ではない
+Array.isArray([]); //true
+Array.isArray($()); //true
+
+var j =$()
+for (var key in j)
+{
+    console.log(key);
+}
+
+//HEADER 一覧
+ $(":header").each(function (){
+    console.log($(this).text() );
+ 
+ });
+    
+});
+
+
+
+//JQを読み込ませる方法
+try `{
+    $ = $ || jQuery; $().length; r();
+} catch(e){
+    var d  document , 0 = d.createElement("script");
+        o.type = "text/javascript";
+        0.src = "JQ CDN";
+        d.body.appendChild(0);
+}
+function r(){
+    console.log($());
+}
+$().click(function(){
+    console.log("click");
+});
+//API
+$().text();
+$().html();
+var text = $().attr("id");//IDnoataiwo 
+$().text(text);
+$().attr("align","right");//align にrightを追加する
+$().text().css();//メソッドチェーン
+$().test();
+$().test();
+
+</script>
+</html>
+
