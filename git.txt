@@ -257,3 +257,8 @@ pullされてはじめてgithub上にマージされる　
 #rebease 
 git checkout frature
 git rebase master
+git checkout master
+git merge feature
+
+
+##
