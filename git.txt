@@ -309,7 +309,15 @@ lightweight 軽量
 git tag -a [タグ名][commitname] 
 -m ["メッセージ"]
 軽量なら　git tag [タグ名][コミット名]
+git show [タグ名]
 
-
-
+#タグの作成
+git tag -a "20190321" -m "version tag"
+git tag
+git show 210190321 #git tagで表示されたたぐ名
+＃タグをリモートリポジトリに送信ンする
+git push [リモート名][タグ名]
+git push origin 20190321
+#一斉送信
+git push origin --tags
 
