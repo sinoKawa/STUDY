@@ -288,7 +288,15 @@ git rebase --continue
 ##コミットをまとめる
 git rebase -i HEAD~3 #
 pick →　squash
-
+##commit を　分割する
+git rebase -i HEAD~3 #
+pick →　edit
+git reset HEAD^
+git add README
+git commit -m 'READMEedit'
+git add index.html
+git commmit -m 'index.htmledit2'
+git rebase --continue
 
 
 無駄メモ　チルダ　 ~ 　キャレット ^
