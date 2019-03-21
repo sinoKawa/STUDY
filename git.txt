@@ -301,6 +301,15 @@ git rebase --continue
 
 無駄メモ　チルダ　 ~ 　キャレット ^
 
+##タブつける方法
+git tag
+git tag -l '2019_03'
+annotated  注釈付き
+lightweight 軽量
+git tag -a [タグ名][commitname] 
+-m ["メッセージ"]
+軽量なら　git tag [タグ名][コミット名]
+
 
 
 
