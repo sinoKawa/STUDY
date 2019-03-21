@@ -324,3 +324,12 @@ git push origin --tags
 ##stash
 git stash
 git stash save  ::上記と同じ意味
+git stash apply ::最新の作業を復元する
+git stash apply --index ::数てーじの状況を復元する
+git stash apply [スタッシュ名]
+git stash apply stash@{0}　等
+
+git stash drop ::最新の作業を削除する
+git stash drop [スタッシュ名]
+git stash drop stash@{0}　等
+git stash clear   #全削除
