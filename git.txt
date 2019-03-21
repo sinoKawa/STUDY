@@ -253,3 +253,7 @@ $ git checkout -b ローカルでのブランチ名 チェックアウトする�
 ##大切なこと
 pushされてはじめてgithubに反映される。
 pullされてはじめてgithub上にマージされる　
+
+#rebease 
+git checkout frature
+git rebase master
