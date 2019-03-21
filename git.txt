@@ -7,6 +7,11 @@ git config
 
 #VIMにする
 git config --global core.editor 'vim -c "set fenc=utf-8"'
+
+#ファストフォワードさせない
+git config --global merge.ff false 
+
+
 ls -a
 ls .git
 objects の中にいろいろはいってくる
