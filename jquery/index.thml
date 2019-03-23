@@ -59,6 +59,110 @@ $().attr("align","right");//align にrightを追加する
 $().text().css();//メソッドチェーン
 $().test();
 $().test();
+var size =  $('#id span').css('fontsize');
+$('#id').text(size).css('fontsize',size);
+$('#id').text(size).css({'fontsize':size , 'color:   '});
+#横断
+　$(this).prev().text()
+　$(this).next().text()
+　//配列ではいる 下記書き方だと
+　var html_ = $('<a href = "./url">'
+　            + '<a>');
+ console.log(html_[0])
+ console.log(html_[1])
+ 
+ .append() 選択した要素の直下の末尾に追加
+ .prepend() 選択した要素の直下の先頭に追加
+ .appendTo() 選択した引数の直下の末尾
+ .prependTo()　選択した引数の直下の先頭
+ 例
+ var $content = $<"dev">.text("[内容]");
+ $([IDやくらす]).prepend($content);
+ $("<div>").text("[内容]").prependTo([IDやクラス]);
+//エフェクト
+.hide()
+.show()
+.toggle()//("slow") とかできる
+
+Ajax　//
+$.ajax({
+    url:"./○○.json "
+    success:function(data){
+        console.log(data)
+    }
+    });
+Defferd // 
+コールバック地獄対応のため Ajaxを複数回叩く必要な場合とかよう
+var wait  = function(){
+    var d = $.Deffered();
+    // d.promise() 処理の予約
+    // d.resolve() 処理を解決
+    // d.reject() 処理を棄却
+    
+    setTimeout(fuction(){
+        d.resolve();
+    },500);
+    
+    return d.promise();
+    });
+$.ajax({
+    url:"./○○.json "
+        .then(function(date)
+        {
+         console.log(date);
+        })
+        .then(wait)
+        .then(function(date)
+        {
+            return $ajax({url: "./test2"});
+        })
+        //.then(,)解決棄却時の処理
+        //.done() 解決時の処理
+        //.fail() 棄却時の処理など
+    });
+    
+Defferd 並列
+　$.when(～,～,...)  or 　$.when.apply($,配列)
+　.done(function(){});
+　例
+　var arr = [
+　 $ajax({url: "./text1.txt"}),
+　 $ajax({url: "./text2.txt"}),
+　 $ajax({url: "./text3.txt"}),
+ ];
+ $.when.apply($.arr)
+ .done(function(){
+ //時間差でしょりするので順番は保証されている
+    for(var i =0; i < arguments.length; i++){//Ajaxは　argumentsでとれる！！
+        var data = argument[i][0];
+        (function(i,data){
+            setTimeout(
+                console.log(data);
+            );
+        })(i.data);
+    }
+    
+//JQ プラグイン
+
+    
+    );
+    
+ });
+
+
+jQuery.noConflict()
+複数のJQバージョン利用や　ほかのJSで$がつかわれてる場合の対応
+console.log($.fn.jQuery) //バージョンを知る
+var mJq = JQuery.noConflict();
+console.log($.fn.jQuery) //バージョンを知る
+console.log(jQuery.fn.jQuery) //バージョンを知る
+console.log(mJq.fn.jQuery) //バージョンを知る
+
+
+
+
+
+
 
 </script>
 </html>
