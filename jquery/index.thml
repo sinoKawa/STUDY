@@ -158,6 +158,178 @@ console.log($.fn.jQuery) //バージョンを知る
 console.log(jQuery.fn.jQuery) //バージョンを知る
 console.log(mJq.fn.jQuery) //バージョンを知る
 
+//Selector CSSと同じ
+$("要素")
+$("#id")
+$(".class")
+$('[属性=""]'　　　属性　href title")
+$('[属性=*""]')属性の値に指定した文字列を含む
+$('[属性=~""]')スペース区切りされた属性の値の中に指定した値と一致するものを含む属性の値に指定した文字列を含む
+$('[属性!="]')指定した属性を含まない　not([属性="値"])と等価
+$('[属性$="]')属性の値が指定した文字列で終わる
+$('[属性^="]')属性の値が指定した文字列で始まる
+例
+$('a[href^="https:"]')  a要素でhref属性が　httpsで始まる場合
+//Selector位置
+//N番目
+$("p") P要素のすべてを取得
+$("p:eq(0)") P要素全体の中で0番目の要素
+$("p:gt(2)") P要素全体の中で2番目よりも大きな要素　gtの意味：greater than
+$("p:lt(2)") P要素全体の中で2番目よりも小さな要素　lsの意味：less than
+$("p:even") P要素全体の中で偶数 0 2 4
+$("p:odd") P要素全体の中で奇数　1 3 5
+$("p:first") P要素一番最初
+$("p:first-child") 親が同一の要素の中で先頭がpの要素・・注意先頭が指定した要素でなければ選択できない。
+$("p:first-of-type") 親が同一の要素の中で最初にでてくるP要素。
+$("p:last") P要素一番最後末尾
+$("p:last-child") 親が同一の要素の中で先頭がpの要素・・注意最後が指定した要素でなければ選択できない。
+$("p:last-of-type") 親が同一の要素の中で最後にでてくるP要素。
+$("p:nth-child(1)")  親が同一の要素の中でP要素全体の中で1番目の要素 注意　スタートは１
+$("p:nth-child(even)")  親が同一の要素の中でP要素全体の中で偶数 1から数えて
+$("p:nth-child(odd)")  親が同一の要素の中でP要素全体の中で奇数 1から数えて
+$("p:nth-child(3n+1)")  親が同一の要素の中でP要素全体のの中で3の倍数+1　 1から数えて
+$("p:nth-of-type(1)") 
+$("p:nth-last-chile(1)") 末尾から一番目がpの要素
+//後
+$(".class名 + div")  同じ親要素でsec1クラスの直後にあるdiv 注意子は含まれない。
+$(".class名 ~ div")  同じ親要素でsec1クラスの後に続くdiv 直後だけでなく後の全部選択できる
+//子や孫
+$("body div")  body内のすべてのDIV　子も孫もすべて
+$("body > div")  body要素の子のdiv 子要素まで
+
+//Form部品
+$('input[type="text"]')
+↓
+$(":text")
+$(":file")
+$(":password")
+$(":checkbox")
+$(":radio")
+$(":button")
+$(":image")
+$(":reset")
+$(":submit")//ボタンの初期値はsubmitなのでtypeをbuttonにするなど対策すること
+//Form部品小隊
+$(":selected") //選択した項目を取得
+//ラジオボタン
+$(":checked") //チェックされた選択を取得できる
+$(":checkbox:checked")
+$("#id:checked")
+$("input[name=group]:checked")
+//状態
+$(":focus") フォーカスされた状態を取得　選択しているFormを取得
+setTimeout(function(){
+    console.log($(":focus"));
+},2000);
+$(":visible") //表示されている情報を取得
+$(":hidden") //非表示になってい情報を取得
+$(":enabled") // 有効な要素選択
+$(":disabled") //　無効な要素を選択
+//中身の状態
+$(":empty") 中身が空の要素を取得する
+$("select:empty")
+$(":parent")
+$("select:parent")親要素を取得する
+$(":contains(~)")子孫の要素に指定の文字れるを含む
+$(":contains(1)")1という要素を含んでいる要素をすべて取得する。
+$(":has(～)") 子孫に～が含まれている要素すべて取得
+$(":has(input)") 子孫にinputが含まれている要素すべて取得
+//否定
+$(":not(～)") 
+$("body:not(input)") 
+$("body:not(input):empty") 
+//ヘッダー要素を取得
+$("header);
+$("header).each(function(){
+    console.log()
+});
+//JQ　横断（Traversing）　親子
+//選択した要素を起点として　ほかの要素を選択する
+//兄弟
+ato .next() .nextAll() .nextUntil()
+mae .prev() .prevAll() .prevUntil()
+all .siblings()
+
+$("#id").next("li")
+$("#id").nextUntil(":cintauns(7)")７の前まで取得
+//JQ　横断（Traversing）　その他
+
+//子系
+.children();一つ下の要素すべて　孫は取得しない
+.contents();テキストノードを含んで取得
+.find()　条件にいっちする子孫ノード取得
+
+.children(:even); 子の偶数のあたいだけ
+
+//親系
+.parent() 一つ上
+.parents() .全ての親要素
+.parentsUntil(条件) 条件よりひとつまえまで取得
+$("～").closest(条件) 自身から先祖要素に遡り最小に一致した要素を取得する
+$("～").offsetParent() 先祖要素でposition が　relative absolute fixed のいずれかの要素を取得　//位置計算用　
+
+
+//JQ　横断（Traversing) その他
+//絞り込み
+.filter(条件)　条件で絞り込む
+.has(条件)　条件をもっているもののみ 
+例
+.filter(":has(ul)")
+.filter(":lastChild")
+.filter(functinon(i){
+    console.log(i)log
+    console.log($(this))
+})
+$("li").has("ul")
+//番号指定系
+.eq(番号)　番号の要素を取得する 
+.first()一番最初
+.last()ラスト
+.slice(開始[,終了])　開始から終了の人る前までの要素を選択　終了省略時は末尾まで
+.slice(-４, -2])　等も可能
+//否定
+$("～").not(".top") top以外の要素を取得
+$("～").not(function(i){ return i % 3 == 0 }); 
+//選択追加系
+.add() 要素を追加する   
+$(".nst2 li").add(".top"); class="top" を追加していく
+addBack()　現在の要素に加え　一つまえの要素を追加
+$("").～().addBadk()
+$(".top").next().addBack(条件) ネクストとTOPの要素を取得する
+//選択破棄
+$("").～().end() 
+$(".top").nextAll().css("color","red").end().css("color","blue")
+//.nextAll()をはきした状態にして.css()をおこｋなう  
+
+.each(function(i,e){}); i番号　e 要素時自身　$(this)
+.map(function(i,e){}); i番号　e 要素時自身　$(this)  現在選択している要素にたいして処理をしてreturnでかえす。jQueryObjectなので注意  
+.map(function(i,e){}).get().join("\n"); jQueryObjectなので注意 配列にしたいときはget()をつかう　get()ではいれつにしjoin(\n)で改行区切りにする。
+
+.is(条件);条件にそっているかチェック
+.is(":last-child");
+例　0を押したとき
+
+$("li").click(function(){
+    var $this  $(this);
+    if $(this.is(".[class]")){
+        console.log("ok");
+    }else{
+        console.log("ng")
+    }
+});0;
+
+//Event
+
+
+
+
+
+
+
+
+
+
+//中身の状態
 
 
 
