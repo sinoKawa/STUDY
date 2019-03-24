@@ -319,6 +319,83 @@ $("li").click(function(){
 });0;
 
 //Event
+//
+$("").メソッド(function(){});
+$("").click(function(){});
+//準備完了  
+ready
+$(document).ready(function(){
+});
+は同じ
+$(funciton(){
+});
+click
+$().click()
+$().dblclick()
+例
+var pClick = function (){ consoke.log("wclick");};
+$("p").dblclick(pClick);
+
+serialize
+例
+//
+$(":radio").change(function(){
+    var name = $(this).attr("name");
+    var val = $(this).val();
+    console.log(name,val);
+});
+$(":checkbox").change(function(){
+    var name = $(this).attr("name");
+    var isChecked = $(this).prok("checked");
+    console.log(name,isChecked);
+});
+//submitはFormのID
+$(#form).submit(function(){
+    console.log(  $(this).serialize()  );/?get文になる
+    console.log(  $(this).serializeArray()  );//配列になる　
+    return false ; //イベントを止める
+});
+//リサイズ　スクロール
+resize.  //Windowの横幅をかえると
+$(window).resize(function(){
+    var w = $(window).width();
+    var h = $(window).height();
+});
+    
+    //行数を増やす
+    for(var i = 0; i<5;i++)
+    {
+        var p = $("p").clone();
+        $("body").append(p);
+    }
+    //スクロールの処理
+$(window).sctoll(function(){
+    var top = $(window).scrollTop();
+    console.log(top + "px");
+});
+//フォーカス系
+.focus() されたとき
+.blur()　外れたとき
+.focusin() されたとき　子要素も
+.focusout() 外れたとき　子要素も
+例
+$("#out, #tet2").focus(function(){
+    var id = $(this).attr("id");
+    console.log("focus", id);
+    
+});
+$("#out, #tet2").focusin(function(e){
+    var id = $(this).attr("id");
+    //子要素など本当にForcusした部分にあてたいなら
+    var idTrgt = $(e.target).attr("id");
+    console.log("focusout",id,idTrgt);
+    
+    
+});
+
+
+
+
 
 
 
