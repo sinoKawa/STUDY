@@ -390,6 +390,314 @@ $("#out, #tet2").focusin(function(e){
     var idTrgt = $(e.target).attr("id");
     console.log("focusout",id,idTrgt);
     
+//Event Key mouse
+//ブラウザ依存が高く　日本語入力だとうかくいかない  
+.keydown()
+.keypress()
+.keymouse()
+.keyup()
+function(e)
+{
+    e.altKey
+    e.ctrlKey
+    e.shiftkey
+
+}
+例 keydownとkeypressで値が違ったりする
+$("#id").keydown(function(e){
+    var c = String.fromCharCode(e.which)
+    console.log("keydown",e.which,c);
+
+});
+$("#id").keyup(function(e){
+    var c = String.fromCharCode(e.which)
+    console.log("keyup",e.which,c);
+});
+//ホバー
+.hover()
+//例
+$("#[id]").hover(function(){
+        console.log("hover");
+        //$(this).css("background","#fdd").val("hover");
+    },function(){
+        console.log("hoverout")
+       //$(this).css("background","").val("");
+    });
+//マウス
+.mousedown() //マウスぼたんのあげさせ
+.mouseup()//マウスぼたんのあげさせ
+.mouseenter(//まうすが　要素内に  対象要素のみ
+.mouseleave()//まうすが　要素内に　対象要素のみ
+.mouseover()//まうすが　要素内に　子要素も対象
+.mouseout()//まうすが　要素内に　子要素も対象
+.mousemove()//要素内でのマウスの移動　//とるタイミング考えないと重くなる
+
+例
+.mouseenter(function(e){
+    console.log(e.target.id,"mouseenter");
+}).mouseleave(function(e){
+    console.log(e.target.id,"mouseleave");
+});
+
+イベントのバブリング
+<html>
+<body>
+<div id="btnOut2" >
+<div id="btnOut1" ></div>
+</div>
+</body>
+</html>
+<button id="btn">button</button>
+$("*").click(function(){
+    var tag =  this.tagName;
+    var id  = this.id;
+    console.log("click",tag,id);
+    //結果は　btn btnOut1 btnOut2 body html 全部叩かれる　これをバブリングというらしい
+    //ボタンの横をおすとbtnOut1　btnOut2 body html 全部叩かれる　これをバブリングというらしい
+    return false //なので return false で一度目でとめる　バブリングさせないために
+});
+<button id="[id]">追加<button>
+<ul>
+    <li>項目</li>
+</ul>
+$("#[id]").on('click',function(){
+    console.log(this);
+    var li = $("li").clone();
+    $("ul").append(li);
+});
+$("li").on('click',function(){
+    console.log(this);
+});
+$("ul").on('click',function(){
+    console.log(this);
+});
+//後から追加された要素だと　clikではみつけられない
+//ulを監視し　クリックされたかとチェックし　クリックされた内容をひょうじするのは可能
+//途中から増える場合は親要素から監視するようにする
+//面倒ならBodyできめてうちする　$("body").on('click',function(){});など
+
+//オフ　イベントの処理をとりのぞく
+.off() //クリックイベントを削除する
+
+//一回のみ　
+.one() //ワンメソッド 各ボタンに一回ずつ
+$(:button).one("click",function(){
+//this.id
+consolo.log($(this));
+});
+
+//イベント実行
+.trigger()
+.triggerHandler()
+
+
+
+$("#[id]").click(function(){
+    $("#[id2]").trigger("click);
+    $("#[id2]").triggerHandler("click");//登録されたイベントのみ一回限り
+});
+
+//
+//イベントオブジェクト
+<div id="a">
+    <button id="btn">push</button>
+</div>
+$("#[id]").click(function(e){
+    //eの部分　イベントオブジェクトとは
+    e.target //イベントが発生した要素 id=btnがある要素　buttonを取得
+    e.currentTarget//イベントで対象になっている要素　thisと同じ　 id="a"がある要素　<div>
+    e.delegateTarget
+    e.relatedTarget
+});
+$("#[id]").on('click',"#a",function(e){
+    //eの部分　イベントオブジェクトとは
+    e.target //イベントが発生した要素 id=btnがある要素　buttonを取得
+    e.currentTarget//イベントで対象になっている要素　thisと同じ　 id="a"がある要素　<div>
+    e.delegateTarget //<body>をさす　イベントが設定された要素　イベントハンドラが指定した要素
+    e.relatedTarget
+});
+$("#[id]").mouseout('click',"#a",function(e){
+    e.relatedTarget //マウスが離れた　id=a 要素
+});
+
+//情報系
+.type
+.pageX
+.pageY
+.which
+.timeStamp //バグがあるので基本つかわない。
+
+$("#[id]").click(function(e){
+//情報系
+e.type イベントのタイプ　click
+e.pageX　マウスのX座標
+e.pageY　マウスのY座標
+e.which　ボタンに紐図けられたキーコード  キーコードで検索　キーボードのどのボタンてきなやつ
+
+//停止系
+.prevendDefault()
+.stopPropagation()
+.stoplmmediatePropagation()
+$("#[id]").click(function(e){
+//通常実行される処理を阻止
+e.prevendDefault()　　
+//バブリングを阻止
+e.stopPropagation()
+//バブリング阻止　以降のイベントハンドラーも阻止　次のイベント前に止める
+e.stopImmediatePropagation()
+
+//イベントの受取方法
+.data()
+.result()
+例
+//({dt:1}でデータを渡せるらしい　e.dataの中に　return 部分は e.resultの中に
+$().click({dt:1},function(e){
+    console.log(this.id,e.data.e.result);
+    return "send 1"
+});
+$().click({dt:2},function(e){
+    console.log(this.id,e.data.e.result);
+    return "send ２"
+});
+//バブリングした先では取得できない。
+$().on("click",{dt:3},function(e){
+    console.log(this.id,e.data.e.result);
+
+});
+
+
+//JQ 属性操作
+.val() valueの値を取得する
+.attr() .removeAttr() 属性id herfとか
+.prop() .prop("checked", true) .removeprop JSで扱うHTMLElementオブジェクトのプロパティ　checked:truefalseでかえってくる　selected readonly disabled 等
+注意　.removeprop 　HTMLがわで設定してあるデータは削除できない　初期化する的な使い方できそう
+
+.addClass() クラスを追加する
+.removeClass() クラスを削除する    
+.toggleClass() onoff あればいれてなければけす　
+.hasClass() false true クラスあかないかのチェック
+
+//CSS
+//取得
+$text.css("color")//値の取得 
+$text.css(["color","font-weight"])//値の取得 
+//設定
+$text.css("color","red")//設定
+$text.css( {"color":"red",fontsize:"200%" })//設定  function(i){} もOK
+//位置
+.offset() ドキュメントを基準にしたい位置　左の位置から
+.position()　オフセット要素基準　style css
+.offset({top:20,left:20});
+.offset(function(i,coords){ 
+    return {top: coords.top + 10,
+            left: coords.left + 10};
+});
+
+//スクロールの操作
+style="overflow:scroll"
+$(function(){
+    var $win = $(window),id = null;
+    $win.scroll(function(){
+        if (id != null) clearTimeout(id);//100いないのは削除
+        id = setTimeout(funciton(){
+            id = null;
+            //位置を出力
+            console.log($win.scrollLeft(),$win.scrollTop);
+            //位置を戻す   2秒後に戻す
+            setTimeout(function(){
+                $win.scrollLeft(0).scrollTop(0);
+            },2000);    
+        },100);
+    });
+})
+
+
+
+//JQ Dimensions 縦横サイズ
+.width()
+.height()
+.innerWidth()
+.innerHeight()
+.outerWidth()
+.outerHeight()
+.outerHeight(true)
+.width(300)
+.width(function(i){return i * 100 + 100})
+
+//詳細　Data
+//カスタムデータ属性
+<  data-* data-form="My" 等>
+.data();HTMLは書き換わらない　JQプログラムないで保持しておく仕組み　注意
+//バブリングした先では取得できない。
+$().on("click",function(e){
+var $t =$(this);
+console.log($t.data("form"));
+$t.data("form",$t.data("form") + 1 );
+console.log($t.data("form"));
+$t.removeData("form");
+console.log($t.data("form"));
+
+//
+//Maniputlation 要素の追加削除など 後回し
+remove().appentTo("ul:eq(0)) だと削除されてるのでクリックできない
+detach().appentTo("ul:eq(0)) データをほじしたまま削除　だとクリックできる
+.clone()//クローンなので　イベントの処理は発生しない 
+.replaceWith()
+.replaceAll()
+.wrap()//ラップ　<div></div>とかつつむように追加できる
+
+//EFFects  これも詳細は来週
+.hide([Duration 継続時間][,Easing緩和linear swing　JQUIプラグインで追加可能][,Callback終了後のする内容])
+.fadeIn .fadeOut fadeTo
+.slideUp()
+.animate()
+$.fx.interval = 5000
+$.fx.off  = true
+
+Ajax　詳細も来週
+セキュリティ　ローカル無理　ファイルサーバ上 //JQUI
+//JS読み込み
+$getScript("  .js").done(function(d){console.log(d)});
+$("div").load("message.html"); ○○を挿入する　・・これつかえそう
+
+Defferd
+$.extend()
+複数のオブジェクトをマージ
+$.extend(a_array,b_array)
+var ee = $.extend({},a_array,b_array) マージするが前の値はかえないようにする
+
+
+});
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+);
+
+//受取系
+
+
+});
+
+
+
+
+
+
+
+
     
 });
 
