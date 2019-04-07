@@ -84,7 +84,104 @@
     var comment = commentsForPost(post,comments);
     console.log(comment);
     
+    //
+    //find
+    //
+    var findarray = [
+        {name: '太郎'},
+        {name: '次郎'},
+        {name: '三郎'}
+        ]
+    //特徴　最初にみつかった一つが返される。
+    var findr = findarray.find(function(user){
+        return user.name ==='次郎';
+    });
+    console.log(findr);
+    function Car(model){
+        this.model = model;
+    }
+    var cars = [
+        new Car('a'),
+        new Car('b'),
+        new Car('c')
+        ];
+    cars.finc(function(car){
+        return car.model === "a";
+    });
     
+    var posts = [
+        {id:1 ,title:"new"},
+        {id:2 ,title:"old"},
+        ];
+    var comment = {postId: 2,content: 'ok!!'};
     
+    function postForComment(posts,comment){
+        return posts.find(function(post){
+           return post.id === comment.postId; 
+        });
+    }
     
+    //every some
+    var computers = [
+        {name:'Apple',ram:24},
+        {name:'Mik',ram:4},
+        {name:'Lind',ram:32},
+        ];
+
+    var allComputer = true;//全部OK
+    var someComputer = false;//どれかでOK
+    
+    //every 論理積一個でもFALSEならFALSE　TURE　&&　FALSE &&　TRUE
+    //some  論理和一個でもTRUEならTRUE　TURE　&&　FALSE &&　TRUE
+    var is_e =computers.every(function(computer){
+       return computer.ram >= 16 
+    });
+    console.log(is_e); //false
+    var is_s =computers.some(function(computer){
+       return computer.ram >= 16 
+    });
+    console.log(is_s); //true
+    //validationチェックとかで全部OKならとかで使える
+    //例
+    function Field(value){
+        this,value = value;
+    }
+    
+    Field.prototype.validate = function(){
+        return this.value.length > 0;
+    }
+    
+    var username = new Field('my_username');
+    var password = new Field('my_password');
+    
+    //now  if(username.validation() && password.validation()){}
+    
+    //some every
+    var fields = [
+        username,password    
+    ];
+    var isFormValidate =fields.every(function(field){
+        return field.validate();
+    });
+    
+    //
+    //reduce
+    //
+    //特徴　初期値がいれられる、　return結果を次にもちあるける。
+    var numbers_r = [10,20,30];
+    var sum = 0;
+    numbers.reduce(function(sum,number){//コールバック　return の結果が　sumに入る。
+        return sum + number;
+    },0);//    },初期値);
+    
+    var primaryColors = [
+        {color: 'red'},
+        {color: 'yello'},
+        {color: 'blue'},
+        ];
+    
+    var primaryColorArray =  primaryColors.reduce(function(preious,primaryColor){
+      preious.push(primaryColor.color);
+      return preious;
+    },[]);
     
