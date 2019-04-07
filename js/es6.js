@@ -215,6 +215,83 @@
     }
     getMessage();
     
+    //アロー関数
+    //old
+    var add = function(a,b){
+        return a + b;
+    }
+    add(1,2)
+    //es6 アロー関数
+    const addaro = (a,b) => {
+        return a + b;
+    }
+    //省略も可能
+    const addaro2 = (a,b) => a + b;
+    addaro (1,2);
+    addaro2 (1,2);
+
+    //省略も可能 一個の時はさらに
+    const addaro3 = a => {
+        return a;
+    }
+    addaro3(2);
+ 
+    const numbersaro = [1,2,3]
+     //mapもさらに省略も可能
+    numbers.map(number => 2* number );
+    
+    const team = {
+      members:['太郎','花子'],  
+      teamName:'スーパーチーム',
+      teamSummary:function(){
+          return this.members.map(function(member){
+              return `${member}は${this.teamName}の所属です`
+          }.bind(this));
+      }
+    };
+    
+    team.teamSummary();//this.teamNameでエラーになる。.bind(this));でthisをもってくれば可能
+    //または   var self = this;    で　mapの中にもってくる。
+    
+    //アロー関数なら簡単に解決できる。下記でOK　thisが中にも反映される　コールバック関数内のthisがかわらない
+    const teamaro = {
+      members:['太郎','花子'],  
+      teamName:'スーパーチーム',
+      teamSummary:function(){
+          return this.members.map((member) => {
+              return `${member}は${this.teamName}の所属です`
+          });
+      }
+    };
+    
+    //オブジェクトリテラル
+    //old
+    function createBookSope(inventory){
+        return{
+            inventory: inventory,
+            inventoryValue: function(){
+                //価格の合計
+                return this.inventory.reduce((total,book) =>total + book.price,0);
+            },
+            priveForTitle:function(title){
+                //タイトルの価格
+                return this.inventory.find((book) =>  book.title === title ).price;
+            }
+        };
+    }
+    const inventory =[
+        {title:'ハリーポッター',price:1000},
+        {title:'ハリーポッター2',price:1200},
+        ];
+    const bookShop = createBookSope(inventory);
+    let booksumall = bookShop.inventoryValue();
+    let bookprice = bookShop.priveForTitle('ハリーポッター');
+    //es6だと
+    
+    
+    
+    
+    
     
     
     
