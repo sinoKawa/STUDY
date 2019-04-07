@@ -265,11 +265,11 @@
     };
     
     //オブジェクトリテラル
-    //old
+    //old     //es6だと
     function createBookSope(inventory){
         return{
-            inventory: inventory,
-            inventoryValue: function(){
+            inventory: inventory,//es6からinventory: inventory→　 inventory,　でOK
+            inventoryValue: function(){//inventoryValue: function() es6からinventoryValue() でOK　
                 //価格の合計
                 return this.inventory.reduce((total,book) =>total + book.price,0);
             },
@@ -286,7 +286,7 @@
     const bookShop = createBookSope(inventory);
     let booksumall = bookShop.inventoryValue();
     let bookprice = bookShop.priveForTitle('ハリーポッター');
-    //es6だと
+
     
     
     
