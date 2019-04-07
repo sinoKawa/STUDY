@@ -185,3 +185,39 @@
       return preious;
     },[]);
     
+    
+    function balanceParens(string){
+        return !string.split('').reduce(function(previous,char){
+            if(previous <0){return previous}
+            if(char ==='('){
+                return previous +1;
+            }
+            if(char ===')'){
+                return previous -1;
+            }
+        } ,0);
+    }
+    balanceParens('()');
+    
+    
+    //
+    //const let var
+    //
+    var color = 'red';//ES6では基本使わない。
+    const COLORC = 'red';//変わる可能性がないもの
+    let Colorl = 'red'//変わる可能性があるもの
+    
+    //テンプレートリテラル　テンプレート文字列
+    function getMessage(){
+        const year = new Date().getFullYear();
+       // return "今年は"+year+"年です";//old
+       return `今年は${year}年です`;//ES6 JSをかけてしまう。
+    }
+    getMessage();
+    
+    
+    
+    
+    
+    
+    
