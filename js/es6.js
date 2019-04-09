@@ -287,14 +287,223 @@
     let booksumall = bookShop.inventoryValue();
     let bookprice = bookShop.priveForTitle('ハリーポッター');
 
+    //Rest Spred
+    
+    const defaultColors =['red','green'];
+    const userColor = ['black','white'];
+    let Color = [...defaultColors,...userColor];
+    function testarray(...array_){
+        console.log("数字",...array_);
+    }
+    testarray(1,2,3,4,5,6,7);
     
     
+    const MathLibrary = {
+      caluculateProduct(...rest){
+        return this.multiply(...rest);
+      },
+      multiply(a,b){
+          return a * b; 
+      }
+        
+    };
+    
+    //
+    //分割代入
+    //
+    //旧
+    var expense = {
+      typee : '交際費',
+      amountt : '4500 JPY'
+    };
+    var type =expense.type;
+    var amount =expense.amount;   
+    //es6
+    const {typee,amountt} = expense;
+    //メモtypeof でINTとかわかる
+    //具体例
+    function textcontent({name,extension,size},{username}){
+        return `${name}.${extension}の${size}.${username}`
+    }
+    var saveText = {
+        extension: 'jpg',
+        name:'profile',
+        size:14040
+    }
+    textcontent(saveText,{username:'ken'});
+    
+    const companies = [
+        'g',
+        'a',
+        'm'
+    ];
+    const [namea,nameb,namec ]= companies;
+    //旧
+    const nameold = companies[0];
+    //es6
+    const [namenew]= companies;
+    const [name1,...restarray]= companies;
+    
+    //
+    const bigc =[
+        {name:'g',location:'m1',area:['a','b','c']},
+        {name:'f',location:'m2',area:['a','b','c']},
+        {name:'a',location:'m3',area:['a','b','c']},
+        ];
+    //一個目の配列のlocation を取得
+    const [{location}] = bigc;
+    const [{area:[first]}] = bigc;//配列1行目のareaの一番目のaを取得する。
+    
+    //{}順番自由
+    function sinup({user,username,psssword,email,city}){
+        //
+    }
+    //Userオブジェクト作成
+    const user = {
+        username: '',
+        psssword: '',
+        email:'',
+        city:''
+    }
+    sinup(user);
+    //具体例
+    const points = [
+        [4,5],
+        [10,1],
+        [0,40]
+    ];
+    //を下記にするには
+    //[
+    //    {x:4,y:5},
+    //    {x:10,y:1},
+    //    {x:0,y:40}
+    //]
+    points.map((x,y) =>{
+       return {x:x,y:y};// return {x,y};
+    });
     
     
+    //JS class　ほかの言語のclassとは違う　プロトタイプチェーンをつかっている
+    //プロトタイプチェーン
+    //リファクタリング
+    //継承
     
+    //旧
+    function Car(options){
+        this.title = options.title;
+    }
+    Car.prototype.drive = function(){
+        return 'ピコーン';
+    }
+    var car = new Car({title:'プリウス'});
+    console.log(car.drive());
+    //継承 旧
+    function Toyota(options){
+        Car.call(this,options);
+        this.color = options.color;
+    }
+    Toyota.prototype = Object.crate(Car.prototype);
+    Toyota.prototype.constructor = Toyota;    
+    Toyota.prototype.honk = function(){
+        return 'alert';
+    }
+    console.log("WWWWWWWWWWWWW");
+    const toyota_ = new Toyota({color:'red',title:'アクア'});
+    toyota_.drive();
+    toyota_.honk();
     
+    //ES6
+    class Car_{
+        constructor({title}){
+            this.title = title;
+        }
+        drive(){
+            return 'ウィイイイン';
+        }
+    }
+    class Toyo extends Car_{
+        constructor(options){
+            super();
+            this.color = options.color;
+        }
+            
+    }
     
+     const toyota = new Toyo({color:'red',title:'ビッツ'});
+     console.log(toyota.drive());
+     
+     //
+     //generate
+     //
+     //for of //特徴　オブジェクトでもなんでもFOR文できる　generateと相性がいい
+     const forofs = [1,2,3,4];
+     let total = 0;
+    for(let forof of forofs){
+         
+         total += forof;
+     }
+    function* genenumbers(){
+        yield;
+    } 
+    const gen = numbers();
+    gen.next();//false
+    gen.next();//true
     
+    function* shopping(){
+        //歩道
+        //お店にいく
+        //財布を持つ    
+        const stuffFormstore = yield '財布';//財布をわたす
+        //家に帰る　買い物をして
+        
+        //コインランドリにいく
+         const cleanClothes = yield '汚れた服';
+        
+        return [stuffFormstore,cleanClothes];//日用品をもらう
+    }
+    const sp = shopping();
+    sp.next();//家から歩道に出る  {value: 財布　done :false}
+    sp.next('日用品');//お店で買い物をして歩道にでる 。 {value: 汚れた服　done :false}
+    sp.next('きれいな服')// {value:[ 日用品,きれいな服]　done :true}
     
+    //for of だと綺麗にかける   
+    function* gecolors(){
+        yield 'red';
+        yield 'blue';
+        yield 'green';
+    }
+    const mygColor = [];
+    for(let gecolor of gecolors()){
+        mygColor.push(gecolor);
+    }
     
+    const engineering = {
+        size:3,
+        department:'ev',
+        lead:'adam',
+        manager:'lala',
+        enginner:'kas'
+    }
+    const tester =[
+        lead:'nori',
+        tester:'taka'
+    ]
     
+    function* TeamIterator(team){
+        yield team.lead;
+        yield team.manager;
+        yield team.engineer;
+        const testGenerator =  TestIterator(team.tester);
+        yield* testGenerator;
+    }
+        
+    function* TestIterator(team){
+        yield team.lead;
+        yield team.tester;
+    }
+    //enginnerのみ
+    const namesge =[];
+    for(let name of TeamIterator(engineering) ){
+        namesge.push(name);//[ev,adam,lala,kas]
+    }
+    //generator Symbol.iterator
