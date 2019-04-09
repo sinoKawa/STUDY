@@ -478,16 +478,17 @@
     }
     
     const engineering = {
+        tester,
         size:3,
         department:'ev',
         lead:'adam',
         manager:'lala',
         enginner:'kas'
     }
-    const tester =[
+    const tester ={
         lead:'nori',
         tester:'taka'
-    ]
+    };
     
     function* TeamIterator(team){
         yield team.lead;
@@ -506,4 +507,41 @@
     for(let name of TeamIterator(engineering) ){
         namesge.push(name);//[ev,adam,lala,kas]
     }
+    //
     //generator Symbol.iterator
+
+    const sym_tester ={
+        lead:'nori',
+        tester:'taka',
+        [Symbol.iterator]: function* (){
+            yield this.lead;
+            yield this.tester;
+        }
+    };
+    const sym_engineering = {
+        sym_tester,    
+        size:3,
+        department:'ev',
+        lead:'adam',
+        manager:'lala',
+        enginner:'kas'
+    }
+    function* Sym_TeamIterator(team){
+        yield team.lead;
+        yield team.manager;
+        yield team.engineer;
+        yield* team.sym_tester;
+    }
+    const Sym_namesge =[];
+    for(let name of Sym_TeamIterator(sym_engineering) ){
+        Sym_namesge.push(name);//[ev,adam,lala,kas]
+    }
+    
+    //ES6　動的なプロパティ
+    const douteki = {
+        [1+2] : 'test',
+        [2+2] : 'test'
+    }
+    
+    //Promis fetch
+    
