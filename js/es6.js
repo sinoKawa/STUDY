@@ -544,4 +544,25 @@
     }
     
     //Promis fetch
-    
+    //Promis unresolove 未解決：動作中　→　resolve[成功] →　then　 or rejected[失敗]　→ catch
+    const promise = new Promise((resolve,reject)=>{
+        
+        //setTimeout(() => {//3秒後に
+        //  resolve();//then表示なら  
+        //}.3000);
+        //resolve();//then表示なら  
+       // reject(); catch表示なら
+       
+        //request.onload = () => {
+        //    resolve();
+        //};
+    });
+    promise.then(() => {
+        console.log('処理完了1');
+    })
+    .then(() => {
+        console.log('処理完了2');
+    })
+    .catch(() => { 
+        console.log('エラー１');
+    });
