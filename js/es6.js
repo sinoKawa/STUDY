@@ -203,6 +203,24 @@
     //
     //const let var
     //
+    
+    //説明　const 定数
+    //特徴１ 変数の場合　変更できない
+    //特徴２　配列やオブジェクトだと中身を変えてもエラーにならない。配列を変数やオブジェクトにはかえられない
+    const x_const = [];//配列　　,,,
+    const y_const ={};//オブジェクト　kEY:VALUE
+    x_const.PUSH("a");
+    y_const["a"]= "A";
+    //let 
+    //特徴1 代入できる
+    //特徴2　var とのちがい同じ変数名を宣言できない 
+    //let を使うとブロックしてしまうと{ let}ブロック外では宣言されていない。取得できない。つまりブロックスコープができなくなる
+    //ECMAではvarはつかわないことが望ましい。
+    
+    
+    
+    
+    
     var color = 'red';//ES6では基本使わない。
     const COLORC = 'red';//変わる可能性がないもの
     let Colorl = 'red'//変わる可能性があるもの
@@ -222,6 +240,8 @@
     }
     add(1,2)
     //es6 アロー関数
+    //特徴１　thisの引き継ぎ範囲がかわる。
+    //特徴２　function をやめ　=> 
     const addaro = (a,b) => {
         return a + b;
     }
@@ -292,10 +312,20 @@
     const defaultColors =['red','green'];
     const userColor = ['black','white'];
     let Color = [...defaultColors,...userColor];
-    function testarray(...array_){
+    function testarray(...array_){//注意点　...array_, a)とするとえらになる。
+        //昔は　var arr = Array.prototype.slice.call(argument);
         console.log("数字",...array_);
     }
+    function test___(a,b=1){//デフォルト因数
+        //昔は　if (b === 'undifined'){ b=0;}
+
+    }
     testarray(1,2,3,4,5,6,7);
+    //スプレっト特徴
+    let [splet_a,splet_b,...splet_arr] = [1,2,3,4,5,6,7];
+    console.log(splet_a); ///3
+    console.log(splet_b); ///2
+    console.log(splet_arr);//[3,4,5,6,7]
     
     
     const MathLibrary = {
@@ -566,3 +596,13 @@
     .catch(() => { 
         console.log('エラー１');
     });
+    var url = 'https://jsonplaceholder.typicode.com/posts/'    
+    //fetch Promisの準備ができる
+    fetch(url)
+    .then(data => console.log(data));//data HEDER全部
+    fetch(url)
+    .then(response => response.json())//中身を取り出す
+    .then(data => console.log(data));//JSON取得する。
+    //fetchの欠点
+    
+    //async/await
