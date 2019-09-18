@@ -2,4 +2,4 @@
 テストです
 # マークダウンテスト２
 テストです
-[first](https://sinokawa.github.io/STUDY/)
+[first2](https://sinokawa.github.io/STUDY/hello.md)
